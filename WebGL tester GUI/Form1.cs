@@ -49,15 +49,31 @@ namespace WebGL_tester_GUI
                 textBox1.Clear();
                 return;
             }
-            filepath = replacespace(filepath);            
-            string exe_params = filepath + " " + portnumber;
-            string exe_full_path = Path.Combine(nodejsapplicationpath,"node app.js");
-            string browsername = getselectedbrowsername();
-            newwindow.StartInfo.WorkingDirectory = nodejsapplicationpath;
-            newwindow.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            newwindow.StartInfo.FileName = "cmd.exe";
-            newwindow.StartInfo.Arguments = "/c node app.js" + " " + filepath.Trim() + " " + portnumber.Trim() + " " + browsername.Trim();
-            newwindow.Start();
+            try
+            {
+                if (File.Exists(filepath + "/index.html") && File.Exists(filepath + "/Build/UnityLoader.js"))
+                {
+                    filepath = replacespace(filepath);
+                    string exe_params = filepath + " " + portnumber;
+                    string exe_full_path = Path.Combine(nodejsapplicationpath, "node app.js");
+                    string browsername = getselectedbrowsername();
+                    newwindow.StartInfo.WorkingDirectory = nodejsapplicationpath;
+                    newwindow.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                    newwindow.StartInfo.FileName = "cmd.exe";
+                    newwindow.StartInfo.Arguments = "/c node app.js" + " " + filepath.Trim() + " " + portnumber.Trim() + " " + browsername.Trim();
+                    newwindow.Start();
+                }
+                else
+                {
+                    MessageBox.Show("No Unity WebGL files present in selected folder", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An exception has occured while trying to read the folder. Message:" + ex.Message, "Exception in reading folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             //newwindow = Process.Start(exe_full_path, exe_params);
         }
 
