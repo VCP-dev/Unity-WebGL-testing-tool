@@ -1,0 +1,15 @@
+{
+  "name": "web-gltester-node-js-application",
+  "version": "0.0.0",
+  "description": "WebGLtesterNodeJsApplication",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "chrome-opn": "^1.0.1",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "opn": "^6.0.0"
+  }
+}
