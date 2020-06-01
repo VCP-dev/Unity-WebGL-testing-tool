@@ -6,13 +6,13 @@ Currently for windows only.
 Features available:
    - Allows you to test your webgl builds locally   
    - The following have to be specified before launching a server:
-         - The path to the folder containing the WebGL files
-         - The port number at which the game will be specified (default : 3000)
-         - The browser to open the game in 
+         1. The path to the folder containing the WebGL files
+         2. The port number at which the game will be specified (default : 3000)
+         3. The browser to open the game in 
            (this is optional and a user can instead enter the link by themselves in their preferred browser )
    - The following are mentioned in the cmd window during testing:
-         - The link to which the game is hosted
-         - The browser in which the game is opening if a browser has been selected
+         1. The link to which the game is hosted
+         2. The browser in which the game is opening if a browser has been selected
             (Note:
               Currently, the following browsers support direct opening of the link
                * Google chrome
