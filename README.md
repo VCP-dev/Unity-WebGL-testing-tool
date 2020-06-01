@@ -1,10 +1,10 @@
 # Unity-WebGL-testing-tool
 A tool for testing Unity WebGL builds 
 
-Currently for windows only. 
+Currently for windows only. Requires node js to be installed on your machine 
 
 Features available:
-   - Allows you to test your webgl builds locally   
+   - Allows you to test your webgl builds locally using node js
    - The following have to be specified before launching a server:
    
          1. The path to the folder containing the WebGL files
