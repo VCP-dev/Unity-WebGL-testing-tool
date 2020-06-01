@@ -16,7 +16,7 @@ Features available:
          1. The link to which the game is hosted
          2. The browser in which the game is opening if a browser has been selected
             (Note:
-              Currently, the following browsers support direct opening of the link
+              Currently, the following browsers are supported for direct opening of the link after th server has been initiated
                * Google chrome
                * Firefox
             )
