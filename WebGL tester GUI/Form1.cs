@@ -14,9 +14,9 @@ namespace WebGL_tester_GUI
 {
     public partial class Form1 : Form
     {
-
-        //string nodejsapplicationpath = "C:/Users/Vinay Paul/source/repos/WebGLtesterNodeJsApplication/WebGLtesterNodeJsApplication";
-        string nodejsapplicationpath = "./NodeServer";
+                
+        string nodejsapplicationpath = ".\\NodeServer";
+        string nodepath = ".\\nodejs\\node";    
         Process newwindow = new Process();
 
         public Form1()
@@ -24,7 +24,7 @@ namespace WebGL_tester_GUI
             InitializeComponent();
             textBox2.Text = "3000";
             checkBox1.Checked = true;
-            File.SetAttributes(nodejsapplicationpath,FileAttributes.ReadOnly);
+            File.SetAttributes(nodejsapplicationpath,FileAttributes.ReadOnly);                  
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace WebGL_tester_GUI
             else if(!portnumber.All(char.IsDigit))
             {
                 MessageBox.Show("Port number entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox2.Clear();
+                textBox2.Text="3000";
                 return;
             }
             if(filepath.Length==0)
@@ -52,15 +52,21 @@ namespace WebGL_tester_GUI
             try
             {
                 if (File.Exists(filepath + "/index.html") && File.Exists(filepath + "/Build/UnityLoader.js"))
-                {
-                    filepath = replacespace(filepath);
-                    string exe_params = filepath + " " + portnumber;
-                    string exe_full_path = Path.Combine(nodejsapplicationpath, "node app.js");
+                {                    
+                    filepath = replacespace(filepath);                    
                     string browsername = getselectedbrowsername();
                     newwindow.StartInfo.WorkingDirectory = nodejsapplicationpath;
                     newwindow.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
                     newwindow.StartInfo.FileName = "cmd.exe";
+
+
+                    // when node is already present in a system
                     newwindow.StartInfo.Arguments = "/c node app.js" + " " + filepath.Trim() + " " + portnumber.Trim() + " " + browsername.Trim();
+
+
+
+                    // when node isn't present and is in the bundled version
+                    //newwindow.StartInfo.Arguments = "/c "+nodepath+" .\\app.js" + " " + filepath.Trim() + " " + portnumber.Trim() + " " + browsername.Trim();
                     newwindow.Start();
                 }
                 else
@@ -72,9 +78,8 @@ namespace WebGL_tester_GUI
             catch (Exception ex)
             {
                 MessageBox.Show("An exception has occured while trying to read the folder. Message:" + ex.Message, "Exception in reading folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }            
             
-            //newwindow = Process.Start(exe_full_path, exe_params);
         }
 
         string getselectedbrowsername()
@@ -150,6 +155,11 @@ namespace WebGL_tester_GUI
             {
                 checkBox1.Checked = false;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
