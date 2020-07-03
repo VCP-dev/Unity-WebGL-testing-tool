@@ -1,6 +1,8 @@
 # Unity-WebGL-testing-tool
 A tool for testing Unity WebGL builds 
 
+Get the tool here : https://vcp.itch.io/webgl-tester-for-unity
+
 Currently for windows only. Requires node js to be installed on your machine 
 
 Features available:
