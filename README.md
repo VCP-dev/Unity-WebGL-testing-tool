@@ -7,7 +7,7 @@ Currently for windows only. Requires node js to be installed on your machine
 
 Features available:
    - Allows you to test your webgl builds locally using node js
-   - The following have to be specified before launching a server:
+   - The following have to be specified through the windows form GUI before launching a server:
    
          1. The path to the folder containing the WebGL files
          2. The port number at which the game will be specified (default : 3000)
