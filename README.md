@@ -10,7 +10,7 @@ Features available:
    - The following have to be specified through the windows form GUI before launching a server:
    
          1. The path to the folder containing the WebGL files
-         2. The port number at which the game will be specified (default : 3000)
+         2. The port number at which the game will be hosted (default : 3000)
          3. The browser to open the game in 
            (this is optional and a user can instead enter the link by themselves in their preferred browser )
    - The following are mentioned in the cmd window during testing:
